@@ -1,211 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="F90 — الموقع الرسمي الخاص F90 لحاسبات الشحن والسحب وحسابات VIP">
-  <meta name="theme-color" content="#0b1020">
-  <title>F90 — الموقع الرسمي الخاص F90</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="F90 — الموقع الرسمي الخاص F90">
+<title>F90 — الموقع الرسمي الخاص F90</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="flag-strip" aria-hidden="true"></div>
+<div class="flag"></div>
 
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="#top" class="brand" aria-label="العودة إلى الرئيسية">
-        <span class="brand-mark"><i></i><i></i><i></i></span>
-        <span>
-          <b>F90</b>
-          <small>F90 DIGITAL SERVICES</small>
-        </span>
-      </a>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#top"><span class="logo-mark">F</span><span><b>F90</b><small>F90 DIGITAL SERVICES</small></span></a>
+    <nav>
+      <a href="#calculators">الحاسبات</a>
+      <a href="#vip">VIP</a>
+      <a href="#history">السجل</a>
+      <a href="#contact">التواصل</a>
+    </nav>
+    <button class="theme" id="themeToggle" type="button">☾ الوضع</button>
+  </div>
+</header>
 
-      <nav class="main-nav" aria-label="التنقل الرئيسي">
-        <a href="#shipping">الشحن</a>
-        <a href="#withdraw">السحب</a>
-        <a href="#vip">VIP</a>
-        <a href="#history">السجل</a>
-        <a href="#contact">التواصل</a>
-      </nav>
+<main id="top">
+<section class="hero container">
+  <div>
+    <span class="eyebrow">F90 CALCULATORS</span>
+    <h1>الموقع الرسمي الخاص <em>F90</em></h1>
+    <p>منصة احترافية لحسابات الشحن والسحب ومكاسب الألعاب ونظام VIP.</p>
+    <a class="btn primary" href="#calculators">ابدأ الحساب</a>
+  </div>
+  <div class="orb"><strong>F90</strong><small>CALCULATORS</small></div>
+</section>
 
-      <button type="button" id="themeToggle" class="theme-toggle" aria-label="تبديل الوضع">
-        <span>☾</span>
-        <span>الوضع</span>
-      </button>
+<section id="calculators" class="section container">
+  <div class="heading"><div><span class="eyebrow">01 / CALCULATORS</span><h2>حاسبات العملات</h2></div><p>12 حاسبة مستقلة ودقيقة</p></div>
+  <div class="tabs">
+    <button class="tab active" data-type="shipping">حاسبات الشحن</button>
+    <button class="tab" data-type="target">سحب التارجت</button>
+    <button class="tab" data-type="games">مكاسب الألعاب</button>
+  </div>
+  <div class="currencies">
+    <button class="currency active" data-currency="JOD">JOD</button>
+    <button class="currency" data-currency="USD">USD</button>
+    <button class="currency" data-currency="EGP">EGP</button>
+    <button class="currency" data-currency="ILS">ILS</button>
+  </div>
+  <div id="calculatorGrid" class="grid"></div>
+</section>
+
+<section id="vip" class="section muted">
+<div class="container">
+  <div class="heading"><div><span class="eyebrow">02 / VIP SYSTEM</span><h2>حاسبة VIP</h2></div></div>
+  <div class="vip-layout">
+    <div class="panel">
+      <div class="form-grid">
+        <label>المستوى الحالي<select id="currentVip"></select></label>
+        <label>المستوى المطلوب<select id="targetVip"></select></label>
+        <label>نوع العملية<select id="vipMode"><option value="reach">الوصول إلى مستوى</option><option value="lock">تثبيت المستوى المطلوب</option><option value="both">الوصول + التثبيت</option></select></label>
+        <label>العرض<select id="multiplier"></select></label>
+        <label>معدل الدعم لكل مليون<input id="supportRate" type="number" value="1" min="0" step="any"></label>
+      </div>
+      <button class="btn primary full" id="calculateVip" type="button">احسب النتيجة</button>
     </div>
-  </header>
-
-  <main id="top">
-    <section class="hero container">
-      <div class="hero-copy">
-        <span class="eyebrow">منصة حسابات احترافية</span>
-        <h1>الموقع الرسمي الخاص <em>F90</em></h1>
-        <p>حاسبات دقيقة للشحن والسحب وحسابات VIP، مصممة لتمنحك نتائج واضحة وسريعة من أي جهاز.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#shipping">ابدأ الحساب</a>
-          <a class="btn btn-ghost" href="#vip">استكشف VIP</a>
-        </div>
-      </div>
-
-      <div class="hero-orbit" aria-label="هوية F90">
-        <div class="orbit-ring ring-one"></div>
-        <div class="orbit-ring ring-two"></div>
-        <div class="orbit-core">
-          <strong>F90</strong>
-          <span>CALCULATORS</span>
-        </div>
-        <div class="orbit-label label-one">دقة</div>
-        <div class="orbit-label label-two">سرعة</div>
-        <div class="orbit-label label-three">خصوصية</div>
-      </div>
-    </section>
-
-    <section id="shipping" class="section container">
-      <div class="section-heading">
-        <div><span class="eyebrow">01 / أدوات الحساب</span><h2>حاسبات الشحن</h2></div>
-        <p>اختر وحدة الإدخال وسيتم تحويل القيمة تلقائياً.</p>
-      </div>
-      <div id="shippingGrid" class="cards-grid"></div>
-    </section>
-
-    <section id="withdraw" class="section section-muted">
-      <div class="container">
-        <div class="section-heading">
-          <div><span class="eyebrow">02 / الأرباح والتحويل</span><h2>حاسبات السحب والمكاسب</h2></div>
-          <p>نتائج مستقلة لكل نوع من أنواع السحب والمكاسب.</p>
-        </div>
-        <div id="withdrawGrid" class="cards-grid"></div>
-      </div>
-    </section>
-
-    <section id="vip" class="section container">
-      <div class="section-heading">
-        <div><span class="eyebrow">03 / نظام المستويات</span><h2>حاسبة VIP</h2></div>
-        <p>احسب الوصول، التثبيت، أو الجمع بينهما باستخدام العرض المناسب.</p>
-      </div>
-
-      <div class="vip-layout">
-        <form id="vipForm" class="panel form-panel">
-          <div class="panel-title"><span class="icon-box">✦</span><div><h3>إعداد العملية</h3><small>أدخل البيانات المطلوبة</small></div></div>
-
-          <div class="form-grid">
-            <label>المستوى الحالي
-              <select id="currentVip"></select>
-            </label>
-            <label>المستوى المطلوب
-              <select id="targetVip"></select>
-            </label>
-            <label>نوع العملية
-              <select id="vipMode">
-                <option value="reach">الوصول إلى مستوى</option>
-                <option value="lock">تثبيت المستوى المطلوب</option>
-                <option value="both">الوصول + التثبيت</option>
-              </select>
-            </label>
-            <label>العرض / Multiplier
-              <select id="multiplier"></select>
-            </label>
-            <label>معدل الدعم لكل مليون
-              <input id="supportRate" type="number" min="0" step="any" value="1">
-            </label>
-          </div>
-
-          <div class="vip-note">يمكن تعديل معدل الدعم حسب اتفاقك التجاري. القيم الافتراضية محسوبة لكل مليون شحن فعلي.</div>
-          <button class="btn btn-primary full" type="submit">احسب نتيجة VIP</button>
-        </form>
-
-        <div class="panel result-panel">
-          <div class="panel-title"><span class="icon-box accent">◎</span><div><h3>نتيجة VIP</h3><small>تتحدث تلقائياً</small></div></div>
-          <div id="vipResults" class="metrics-grid"></div>
-          <div id="vipFormula" class="formula-box">أدخل البيانات لعرض المعادلة.</div>
-          <button type="button" class="btn btn-ghost full" data-copy-target="vipFormula">نسخ النتيجة</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted">
-      <div class="container">
-        <div class="section-heading">
-          <div><span class="eyebrow">04 / المرجع الكامل</span><h2>جدول VIP</h2></div>
-          <input id="vipSearch" class="search-input" type="search" placeholder="ابحث عن مستوى VIP">
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>المستوى</th><th>إجمالي الشحن</th><th>XP للترقية</th><th>XP للحفاظ</th></tr></thead>
-            <tbody id="vipTableBody"></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section id="history" class="section container">
-      <div class="section-heading">
-        <div><span class="eyebrow">05 / أرشيفك المحلي</span><h2>سجل العملاء والعمليات</h2></div>
-        <div class="heading-actions">
-          <button type="button" id="statsToggle" class="btn btn-ghost">الإحصائيات</button>
-          <button type="button" id="clearHistory" class="btn btn-danger">حذف الكل</button>
-        </div>
-      </div>
-
-      <div id="statsPanel" class="stats-panel is-hidden"></div>
-
-      <div class="history-form panel">
-        <div class="form-grid">
-          <label>اسم العميل<input id="clientName" type="text" placeholder="مثال: أحمد"></label>
-          <label>ID الحساب<input id="clientId" type="text" placeholder="رقم الحساب"></label>
-        </div>
-        <button type="button" id="saveOperation" class="btn btn-primary">حفظ العملية الحالية</button>
-      </div>
-
-      <input id="historySearch" class="search-input wide-search" type="search" placeholder="البحث باسم العميل أو ID">
-      <div id="historyList" class="history-list"></div>
-    </section>
-
-    <section id="contact" class="section contact-section">
-      <div class="container">
-        <div class="contact-intro">
-          <span class="eyebrow">06 / F90 DIGITAL SERVICES</span>
-          <h2>خدمات رقمية بهوية مختلفة</h2>
-          <p>اشترك في المنصة أو امتلك تجربة F90 بالكامل.</p>
-        </div>
-
-        <div class="plans-grid">
-          <article class="plan-card">
-            <span class="plan-tag">الأكثر طلباً</span>
-            <h3>اشتراك شهري</h3>
-            <strong>25<small>$</small></strong>
-            <p>اشتراك شهري في الموقع مع الاستفادة من جميع الحاسبات.</p>
-            <a class="btn btn-primary full" target="_blank" rel="noopener" href="https://wa.me/970568181910?text=مرحباً، أريد الاشتراك الشهري في F90">اشترك الآن</a>
-          </article>
-          <article class="plan-card featured">
-            <span class="plan-tag">ملكية كاملة</span>
-            <h3>امتلاك الموقع</h3>
-            <strong>100<small>$</small></strong>
-            <p>امتلاك الموقع بالكامل وتجربة F90 التجارية المميزة.</p>
-            <a class="btn btn-light full" target="_blank" rel="noopener" href="https://wa.me/970568181910?text=مرحباً، أريد شراء موقع F90 بالكامل">شراء الموقع</a>
-          </article>
-        </div>
-
-        <div class="contact-links">
-          <a target="_blank" rel="noopener" href="https://wa.me/970568181910">WhatsApp: +970568181910</a>
-          <a target="_blank" rel="noopener" href="https://instagram.com/f90.xd">Instagram: @f90.xd</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <div id="toast" class="toast" role="status"></div>
-  <div class="flag-strip bottom" aria-hidden="true"></div>
-
-  <footer class="site-footer">
-    <div class="container footer-wrap">
-      <div class="brand footer-brand"><span class="brand-mark"><i></i><i></i><i></i></span><span><b>F90</b><small>F90 DIGITAL SERVICES</small></span></div>
-      <p>F90 — الموقع الرسمي الخاص F90</p>
-      <div><a href="https://instagram.com/f90.xd" target="_blank" rel="noopener">@f90.xd</a> · <a href="https://wa.me/970568181910" target="_blank" rel="noopener">WhatsApp</a></div>
+    <div class="panel">
+      <div id="vipResults" class="metrics"></div>
+      <div id="vipFormula" class="formula">أدخل البيانات لعرض المعادلة.</div>
+      <button class="btn full" id="copyVip" type="button">نسخ النتيجة</button>
     </div>
-  </footer>
+  </div>
+</div>
+</section>
 
-  <script src="script.js"></script>
+<section class="section container">
+  <div class="heading"><div><span class="eyebrow">03 / VIP TABLE</span><h2>جدول VIP</h2></div><input id="vipSearch" class="search" placeholder="ابحث عن مستوى"></div>
+  <div class="table-wrap"><table><thead><tr><th>المستوى</th><th>إجمالي الشحن</th><th>XP للترقية</th><th>XP للحفاظ</th></tr></thead><tbody id="vipTable"></tbody></table></div>
+</section>
+
+<section id="history" class="section muted">
+<div class="container">
+  <div class="heading"><div><span class="eyebrow">04 / LOCAL HISTORY</span><h2>سجل العملاء</h2></div><button id="statsToggle" class="btn" type="button">الإحصائيات</button></div>
+  <div id="stats" class="stats hidden"></div>
+  <div class="panel history-form">
+    <div class="form-grid"><label>اسم العميل<input id="clientName" placeholder="اسم العميل"></label><label>ID الحساب<input id="clientId" placeholder="ID الحساب"></label></div>
+    <button id="saveOperation" class="btn primary" type="button">حفظ العملية</button>
+  </div>
+  <input id="historySearch" class="search wide" placeholder="البحث باسم العميل أو ID">
+  <div id="historyList"></div>
+  <button id="clearHistory" class="btn danger" type="button">حذف كل السجل</button>
+</div>
+</section>
+
+<section id="contact" class="contact section">
+<div class="container">
+  <div class="center"><span class="eyebrow">05 / F90 DIGITAL SERVICES</span><h2>خدمات رقمية بهوية مختلفة</h2></div>
+  <div class="plans">
+    <article class="plan"><span>اشتراك شهري</span><strong>25<small>$</small></strong><p>اشتراك شهري في الموقع.</p><a class="btn primary full" target="_blank" href="https://wa.me/970568181910?text=مرحباً، أريد الاشتراك الشهري في F90">اشترك الآن</a></article>
+    <article class="plan featured"><span>امتلاك الموقع</span><strong>100<small>$</small></strong><p>امتلاك الموقع بالكامل.</p><a class="btn light full" target="_blank" href="https://wa.me/970568181910?text=مرحباً، أريد شراء موقع F90">شراء الموقع</a></article>
+  </div>
+  <div class="contact-links"><a target="_blank" href="https://wa.me/970568181910">WhatsApp: +970568181910</a><a target="_blank" href="https://instagram.com/f90.xd">Instagram: @f90.xd</a></div>
+</div>
+</section>
+</main>
+
+<div id="toast"></div>
+<div class="flag"></div>
+<footer><div class="container footer"><b>F90</b><span>الموقع الرسمي الخاص F90</span><span>F90 Digital Services</span><span>@f90.xd · +970568181910</span></div></footer>
+<script src="script.js"></script>
 </body>
 </html>
