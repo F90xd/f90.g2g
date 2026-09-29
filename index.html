@@ -2,167 +2,69 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0a0d14">
-  <title>F90 | مركز العمليات</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F90 | المركز الرسمي للعمليات</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="app-shell">
-    <aside class="sidebar">
-      <a class="brand" href="#dashboard">
-        <span class="brand-mark">F</span>
-        <span><strong>F90</strong><small>OPERATION CENTER</small></span>
-      </a>
-
-      <div class="side-label">مساحة العمل</div>
-      <nav class="nav">
-        <a class="nav-link active" href="#dashboard"><span>◈</span> لوحة العمليات</a>
-        <a class="nav-link" href="#vip"><span>✦</span> حاسبة VIP</a>
-        <a class="nav-link" href="#tools"><span>▦</span> أدوات الحساب</a>
-        <a class="nav-link" href="#shipping"><span>↗</span> جدول الشحن</a>
-        <a class="nav-link" href="#history"><span>◷</span> سجل العمليات</a>
-      </nav>
-
-      <div class="sidebar-bottom">
-        <span class="status-dot"></span>
-        <div><strong>النظام جاهز</strong><small>جميع الأدوات تعمل</small></div>
-        <span class="live-pill">LIVE</span>
+  <div class="flag-ribbon top"></div>
+  <div class="app-container">
+    <header class="main-header">
+      <div class="brand">
+        <span class="logo">F90</span>
+        <h1>موقع F90 الرسمي</h1>
       </div>
-    </aside>
+      <nav class="social-nav">
+        <a href="https://wa.me/970568181910" target="_blank">واتساب: 970568181910+</a>
+        <a href="https://instagram.com/f90.xd" target="_blank">إنستغرام: f90.xd</a>
+      </nav>
+      <button id="themeToggle">تبديل المظهر</button>
+    </header>
 
-    <main class="main-content" id="dashboard">
-      <header class="topbar">
-        <div>
-          <div class="eyebrow">F90 / CONTROL ROOM</div>
-          <h1>مركز العمليات <span class="title-spark">✳</span></h1>
+    <main>
+      <!-- VIP Calculator -->
+      <section id="vip" class="card">
+        <h2>حاسبة VIP الكاملة</h2>
+        <div class="vip-controls">
+          <input type="number" id="vipPoints" placeholder="نقاط الـ VIP">
+          <input type="number" id="vipMultiplier" placeholder="المضاعف">
+          <select id="vipType">
+            <option value="none">بدون تثبيت</option>
+            <option value="maintain">تثبيت (Maintain)</option>
+          </select>
+          <button onclick="calculateVIP()">حساب</button>
         </div>
-        <div class="top-actions">
-          <span class="today" id="today"></span>
-          <button class="icon-button" id="themeToggle" type="button" aria-label="تغيير المظهر">☼</button>
-        </div>
-      </header>
-
-      <section class="welcome-panel">
-        <div class="welcome-copy">
-          <span class="section-kicker">مساحة العمل الخاصة بك</span>
-          <h2>كل الأرقام، <em>تحت السيطرة.</em></h2>
-          <p>حاسبات مستقلة للشحن والتارجت ومكاسب الألعاب.</p>
-          <a class="primary-button" href="#tools">ابدأ الحساب <span>←</span></a>
-        </div>
-        <div class="orbit-art" aria-hidden="true">
-          <div class="orbit orbit-one"></div>
-          <div class="orbit orbit-two"></div>
-          <div class="orbit-core">F<span>90</span></div>
-          <i class="orbit-dot dot-one"></i>
-          <i class="orbit-dot dot-two"></i>
-        </div>
-        <div class="panel-index">01 <span>/ 04</span></div>
+        <div id="vipResult" class="result">النتيجة: —</div>
       </section>
 
-      <section class="section-block" id="vip">
-        <div class="section-heading">
-          <div><span class="section-kicker">VIP MANAGEMENT</span><h2>حاسبة VIP</h2></div>
-          <span class="independent-tag">أداة مستقلة</span>
+      <!-- All Other Calculators -->
+      <section class="grid-tools">
+        <!-- Template structure for a calculator card (will be generated in JS) -->
+      </section>
+
+      <!-- Subscription Cards -->
+      <section class="subscription-section">
+        <div class="sub-card">
+          <h3>اشتراك شهري</h3>
+          <p>25$</p>
+          <a href="https://wa.me/970568181910?text=أريد الاشتراك شهرياً بـ 25$" class="btn">اشترك الآن</a>
         </div>
-        <div class="tool-card vip-card">
-          <div class="tool-intro">
-            <span class="tool-icon purple">✦</span>
-            <div><h3>حساب شحن الوكيل</h3><p>أدخل نقاط VIP والمضاعف لحساب قيمة الشحن.</p></div>
-          </div>
-          <div class="form-grid vip-form">
-            <label>نقاط VIP<input id="vipPoints" type="number" min="0" placeholder="أدخل النقاط"></label>
-            <label>المضاعف<input id="vipMultiplier" type="number" min="0.01" step="0.01" placeholder="أدخل المضاعف"></label>
-            <button class="calculate-button" id="vipCalculate" type="button">احسب النتيجة <span>↗</span></button>
-          </div>
-          <div class="result-strip">
-            <span>شحن الوكيل</span><strong id="vipResult">—</strong><small>كوينز</small>
-          </div>
+        <div class="sub-card">
+          <h3>امتلاك الموقع</h3>
+          <p>100$</p>
+          <a href="https://wa.me/970568181910?text=أريد شراء الموقع بـ 100$" class="btn">اطلب الموقع</a>
         </div>
       </section>
 
-      <section class="section-block" id="tools">
-        <div class="section-heading">
-          <div><span class="section-kicker">QUICK CALCULATORS</span><h2>أدوات الحساب</h2></div>
-          <span class="muted-note">كل أداة مستقلة عن الأخرى</span>
-        </div>
-
-        <div class="tools-grid">
-          <article class="tool-card calculator-card">
-            <div class="tool-intro">
-              <span class="tool-icon mint">↘</span>
-              <div><h3>سحب التارجت</h3><p>كل 100,000 = 500 جنيه</p></div>
-            </div>
-            <label>عدد الكوينز<input id="targetInput" type="number" min="0" placeholder="مثال: 1000000"></label>
-            <div class="mini-result"><span>قيمة السحب</span><strong id="targetResult">—</strong><small>جنيه</small></div>
-            <button class="small-button" data-calc="target" type="button">احسب <span>←</span></button>
-          </article>
-
-          <article class="tool-card calculator-card">
-            <div class="tool-intro">
-              <span class="tool-icon coral">♢</span>
-              <div><h3>مكاسب الألعاب</h3><p>كل 100,000 رمي = 400 جنيه</p></div>
-            </div>
-            <label>عدد الكوينز<input id="gamesInput" type="number" min="0" placeholder="مثال: 1000000"></label>
-            <div class="mini-result"><span>قيمة المكاسب</span><strong id="gamesResult">—</strong><small>جنيه</small></div>
-            <button class="small-button" data-calc="games" type="button">احسب <span>←</span></button>
-          </article>
-
-          <article class="tool-card calculator-card">
-            <div class="tool-intro">
-              <span class="tool-icon blue">◎</span>
-              <div><h3>تحويل الكوينز إلى جنيه</h3><p>كل مليون كوين = 5,300 جنيه</p></div>
-            </div>
-            <label>عدد الكوينز<input id="coinValueInput" type="number" min="0" placeholder="أدخل عدد الكوينز"></label>
-            <div class="mini-result"><span>القيمة بالجنيه</span><strong id="coinValueResult">—</strong><small>جنيه</small></div>
-            <button class="small-button" data-calc="coinValue" type="button">احسب <span>←</span></button>
-          </article>
-        </div>
+      <!-- History -->
+      <section id="history" class="card">
+        <h2>سجل العمليات</h2>
+        <button onclick="clearHistory()">مسح السجل</button>
+        <div id="historyList"></div>
       </section>
-
-      <section class="section-block" id="shipping">
-        <div class="section-heading">
-          <div><span class="section-kicker">SHIPPING MENU</span><h2>جدول الشحن</h2></div>
-          <span class="muted-note">اختر الباقة أو أدخل مبلغاً مخصصاً</span>
-        </div>
-
-        <div class="shipping-layout">
-          <div class="tool-card shipping-card">
-            <div class="tool-intro">
-              <span class="tool-icon gold">ج</span>
-              <div><h3>باقات الشحن المعتمدة</h3><p>اختر باقة لعرض الكوينز وحفظ العملية.</p></div>
-            </div>
-            <div class="package-grid" id="packageGrid"></div>
-          </div>
-
-          <div class="tool-card custom-shipping">
-            <div class="section-kicker">CUSTOM PACKAGE</div>
-            <h3>شحن بمبلغ مخصص</h3>
-            <p>الحساب حسب سعر المليون: 5,300 جنيه.</p>
-            <label>المبلغ بالجنيه
-              <div class="input-with-unit"><input id="customAmount" type="number" min="1" placeholder="أدخل المبلغ"><span>جنيه</span></div>
-            </label>
-            <div class="mini-result"><span>الكوينز التقريبية</span><strong id="customCoins">—</strong><small>كوين</small></div>
-            <button class="calculate-button full-button" id="customCalculate" type="button">احسب الباقة <span>↗</span></button>
-          </div>
-        </div>
-      </section>
-
-      <section class="section-block" id="history">
-        <div class="section-heading">
-          <div><span class="section-kicker">RECENT ACTIVITY</span><h2>سجل العمليات</h2></div>
-          <button class="text-button" id="clearHistory" type="button">مسح السجل ×</button>
-        </div>
-        <div class="history-card">
-          <div class="history-head"><span>العملية</span><span>النتيجة</span><span>الوقت</span><span>مشاركة</span></div>
-          <div id="historyList"></div>
-          <div class="empty-state" id="emptyHistory">لا توجد عمليات محفوظة بعد. ابدأ باستخدام إحدى الأدوات.</div>
-        </div>
-      </section>
-
-      <footer><span>F90 OPERATION CENTER</span><span>مصمم لإدارة الأرقام بوضوح.</span></footer>
     </main>
   </div>
+  <div class="flag-ribbon bottom"></div>
+  <script src="script.js"></script>
 </body>
 </html>
