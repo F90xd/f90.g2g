@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F90 | الحاسبات المالية وشحن وVIP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Palestine Ribbon Top -->
+    <div class="palestine-ribbon-top" aria-hidden="true"></div>
+
+    <!-- Sticky Header Navigation -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo-wrapper">
+                <a href="#home" class="f90-logo" aria-label="F90 الصفحة الرئيسية">
+                    <span class="logo-badge">F90</span>
+                    <span class="logo-glow"></span>
+                </a>
+                <div class="brand-titles">
+                    <h1 class="main-title">الموقع الرسمي الخاص F90</h1>
+                    <p class="sub-title">حاسبات الشحن والسحب وVIP ومكاسب الألعاب</p>
+                </div>
+            </div>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#shipping" class="nav-link">الشحن</a>
+                <a href="#withdrawal" class="nav-link">السحب والتارجت</a>
+                <a href="#games" class="nav-link">مكاسب الألعاب</a>
+                <a href="#vip" class="nav-link">حاسبة VIP</a>
+                <a href="#history" class="nav-link">السجل</a>
+                <a href="#vip-table" class="nav-link">جدول VIP</a>
+                <a href="#services" class="nav-link">الخدمات</a>
+                <a href="#contact" class="nav-link">التواصل</a>
+            </nav>
+
+            <div class="header-actions">
+                <button id="statsToggleBtn" class="action-btn stats-btn" title="لوحة الإحصائيات" aria-label="فتح لوحة الإحصائيات">
+                    📊 <span class="btn-text">الإحصائيات</span>
+                </button>
+                <button id="themeToggleBtn" class="action-btn theme-btn" aria-label="تغيير الثيم">
+                    <span class="theme-icon">☾</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal Statistics Dashboard -->
+    <div id="statsModal" class="modal-overlay hidden">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h2>📊 لوحة الإحصائيات العامة</h2>
+                <button id="closeStatsBtn" class="close-btn">&times;</button>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-title">إجمالي العمليات</span>
+                    <span class="stat-value" id="statTotalOps">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-title">إجمالي العملاء</span>
+                    <span class="stat-value" id="statTotalClients">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-title">إجمالي الشحن (كوينز)</span>
+                    <span class="stat-value" id="statTotalShipping">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-title">إجمالي الدعم المطلوب</span>
+                    <span class="stat-value" id="statTotalSupport">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-title">إجمالي نقاط VIP</span>
+                    <span class="stat-value" id="statTotalVipXp">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-title">إجمالي المبلغ (JOD)</span>
+                    <span class="stat-value" id="statTotalJod">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-title">إجمالي المبلغ ($)</span>
+                    <span class="stat-value" id="statTotalUsd">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-title">أعلى مستوى VIP مستهدف</span>
+                    <span class="stat-value" id="statMaxVip">VIP 0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container main-content" id="home">
+
+        <!-- Navigation Quick Cards -->
+        <section class="section-block">
+            <div class="quick-nav-grid">
+                <a href="#shipping" class="quick-card">
+                    <span class="quick-icon">💳</span>
+                    <h3>حاسبات الشحن</h3>
+                    <p>أردن، أمريكا، مصر، فلسطين</p>
+                </a>
+                <a href="#withdrawal" class="quick-card">
+                    <span class="quick-icon">💸</span>
+                    <h3>حاسبات السحب والتارجت</h3>
+                    <p>سحب الرصيد والتارجت لكافة العملات</p>
+                </a>
+                <a href="#games" class="quick-card">
+                    <span class="quick-icon">🎮</span>
+                    <h3>مكاسب الألعاب</h3>
+                    <p>حساب أرباح الرمي والألعاب</p>
+                </a>
+                <a href="#vip" class="quick-card highlight-card">
+                    <span class="quick-icon">👑</span>
+                    <h3>حاسبة VIP الاحترافية</h3>
+                    <p>حسابات الترقية والتثبيت والعروض</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 1: Shipping Calculators -->
+        <section id="shipping" class="section-block">
+            <div class="section-title-wrap">
+                <h2 class="section-title"><span class="title-icon">💳</span> حاسبات الشحن</h2>
+                <p class="section-desc">حساب تكلفة الكوينز والعملات النقدية بدقة متناهية بالاتجاهين</p>
+            </div>
+            <div class="calculators-grid" id="shippingGrid"></div>
+        </section>
+
+        <!-- Section 2: Withdrawal & Target Calculators -->
+        <section id="withdrawal" class="section-block">
+            <div class="section-title-wrap">
+                <h2 class="section-title"><span class="title-icon">🎯</span> حاسبات سحب التارجت</h2>
+                <p class="section-desc">حساب مبالغ سحب التارجت لجميع العملات المعتمده</p>
+            </div>
+            <div class="calculators-grid" id="withdrawalGrid"></div>
+        </section>
+
+        <!-- Section 3: Games Earnings Calculators -->
+        <section id="games" class="section-block">
+            <div class="section-title-wrap">
+                <h2 class="section-title"><span class="title-icon">🎰</span> حاسبات مكاسب الألعاب والرمي</h2>
+                <p class="section-desc">حساب قيمة الأرباح المكتسبة من الألعاب والرمي</p>
+            </div>
+            <div class="calculators-grid" id="gamesGrid"></div>
+        </section>
+
+        <!-- Section 4: Premium VIP Calculator -->
+        <section id="vip" class="section-block">
+            <div class="vip-calculator-card glass-card">
+                <div class="vip-card-header">
+                    <div class="vip-badge">VIP PREMIUM</div>
+                    <h2>👑 حاسبة VIP المتقدمة</h2>
+                    <p>حساب دقيق لمتطلبات الترقية والتثبيت والشحن والدعم الفعلي</p>
+                </div>
+
+                <div class="vip-form-grid">
+                    <div class="form-group">
+                        <label for="vipCurrentLevel">المستوى الحالي:</label>
+                        <select id="vipCurrentLevel" class="vip-select"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vipCalcMode">نوع الحساب:</label>
+                        <select id="vipCalcMode" class="vip-select">
+                            <option value="reach">الوصول إلى مستوى جديد</option>
+                            <option value="maintain_current">تثبيت المستوى الحالي فقط</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="targetLevelGroup">
+                        <label for="vipTargetLevel">المستوى المطلوب:</label>
+                        <select id="vipTargetLevel" class="vip-select"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vipOffer">العرض المحدد:</label>
+                        <select id="vipOffer" class="vip-select">
+                            <option value="1">×1</option>
+                            <option value="2">×2</option>
+                            <option value="3">×3</option>
+                            <option value="4">×4</option>
+                            <option value="5" selected>×5 (الافتراضي)</option>
+                            <option value="6">×6</option>
+                            <option value="7">×7</option>
+                            <option value="8">×8</option>
+                            <option value="9">×9</option>
+                            <option value="10">×10</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width" id="manualXpGroup">
+                        <label for="vipManualDeficit">قيمة النقص الفعلية للترقية الأولى (اختياري / إدخال يدوي):</label>
+                        <input type="number" id="vipManualDeficit" placeholder="أدخل النقص الفعلي بالنقاط إن وجد..." min="0">
+                        <small class="field-hint">إذا تركته فارغاً سيتم استخدام قيمة الترقية الكاملة المحددة بالجدول للمستوى الأول.</small>
+                    </div>
+
+                    <div class="form-group full-width" id="maintainTargetGroup">
+                        <label class="switch-label">
+                            <input type="checkbox" id="vipMaintainTargetSwitch">
+                            <span class="slider"></span>
+                            <span class="switch-text">إضافة تثبيت المستوى المطلوب (Maintain XP)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Live Results Display -->
+                <div class="vip-results-box">
+                    <div class="results-header">
+                        <h3>📋 نتائج الحساب لـ VIP</h3>
+                        <span class="route-display" id="vipRouteDisplay">VIP 1 ➔ VIP 2</span>
+                    </div>
+
+                    <div class="results-grid">
+                        <div class="res-item">
+                            <span class="res-label">نقاط الوصول:</span>
+                            <span class="res-value" id="resReachXp">0</span>
+                        </div>
+                        <div class="res-item">
+                            <span class="res-label">نقاط التثبيت:</span>
+                            <span class="res-value" id="resMaintainXp">0</span>
+                        </div>
+                        <div class="res-item highlight-item">
+                            <span class="res-label">إجمالي نقاط VIP:</span>
+                            <span class="res-value" id="resTotalVipXp">0</span>
+                        </div>
+                        <div class="res-item highlight-item primary-res">
+                            <span class="res-label">شحن الوكيل المطلوبة:</span>
+                            <span class="res-value" id="resAgentCoins">0</span>
+                        </div>
+                        <div class="res-item">
+                            <span class="res-label">الدعم المطلوب:</span>
+                            <span class="res-value" id="resSupportNeeded">0</span>
+                        </div>
+                        <div class="res-item currency-item">
+                            <span class="res-label">القيمة بالدينار (JOD):</span>
+                            <span class="res-value" id="resCostJod">0 دينار</span>
+                        </div>
+                        <div class="res-item currency-item">
+                            <span class="res-label">القيمة بالدولار ($):</span>
+                            <span class="res-value" id="resCostUsd">0 $</span>
+                        </div>
+                    </div>
+
+                    <div class="formula-explain" id="vipFormulaExplain">
+                        المعادلة: إجمالي نقاط VIP ÷ العرض = شحن الوكيل
+                    </div>
+                </div>
+
+                <!-- Client Details & Save Action -->
+                <div class="vip-save-section">
+                    <h3>💾 حفظ العملية بسجل العملاء</h3>
+                    <div class="save-form-grid">
+                        <input type="text" id="clientNameInput" placeholder="اسم العميل (مثال: أحمد علي)">
+                        <input type="text" id="clientIdInput" placeholder="معرف العميل (ID) (مثال: 9090123)">
+                        <button id="saveVipOperationBtn" class="action-btn save-btn">حفظ العملية بالسجل</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Operation History -->
+        <section id="history" class="section-block">
+            <div class="section-title-wrap">
+                <h2 class="section-title"><span class="title-icon">📜</span> سجل العملاء والعمليات</h2>
+                <p class="section-desc">سجل دقيق ومحفوظ محلياً لكافة الحسابات والعمليات المحفوظة</p>
+            </div>
+
+            <div class="history-card glass-card">
+                <div class="history-controls">
+                    <input type="text" id="historySearchInput" placeholder="🔍 بحث باسم العميل أو ID...">
+                    <button id="clearAllHistoryBtn" class="action-btn danger-btn">حذف كل السجل</button>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="data-table" id="historyTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>العميل (ID)</th>
+                                <th>المسار</th>
+                                <th>العرض</th>
+                                <th>إجمالي VIP</th>
+                                <th>شحن الوكيل</th>
+                                <th>الدعم</th>
+                                <th>دينار</th>
+                                <th>دولار</th>
+                                <th>التاريخ</th>
+                                <th>إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Official VIP Levels Table -->
+        <section id="vip-table" class="section-block">
+            <div class="section-title-wrap">
+                <h2 class="section-title"><span class="title-icon">📊</span> جدول مستويات VIP الرسمية</h2>
+                <p class="section-desc">جدول النقاط والتكلفة الشامل لمستويات VIP من 1 إلى 20</p>
+            </div>
+
+            <div class="vip-table-card glass-card">
+                <div class="table-responsive">
+                    <table class="data-table vip-official-table">
+                        <thead>
+                            <tr>
+                                <th>المستوى</th>
+                                <th>إجمالي الشحن المطلوب</th>
+                                <th>XP المطلوب للترقية</th>
+                                <th>XP الحفاظ على المستوى</th>
+                            </tr>
+                        </thead>
+                        <tbody id="officialVipTableBody">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Services & Subscriptions -->
+        <section id="services" class="section-block">
+            <div class="section-title-wrap">
+                <h2 class="section-title"><span class="title-icon">💎</span> خدمات F90 المتميزة</h2>
+                <p class="section-desc">انضم إلى منظومة F90 أو امتلك الحاسبة بالكامل مع دعم فني متواصل</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card glass-card">
+                    <div class="service-badge">اشتراك دوري</div>
+                    <h3>اشتراك شهري</h3>
+                    <div class="service-price">25$ <span class="period">/ شهرياً</span></div>
+                    <p class="service-desc">اشتراك شهري كامل في الموقع واستخدام كافة الحاسبات والتحديثات المستمرة.</p>
+                    <a href="https://wa.me/970568181910?text=أريد%20الاشتراك%20الشهري%20في%20موقع%20F90" target="_blank" rel="noopener" class="action-btn service-btn">اشتراك الآن عبر WhatsApp</a>
+                </div>
+
+                <div class="service-card glass-card featured">
+                    <div class="service-badge vip-badge">ملكية كاملة</div>
+                    <h3>امتلاك الموقع بالكامل</h3>
+                    <div class="service-price">100$ <span class="period">دفع مرة واحدة</span></div>
+                    <p class="service-desc">امتلاك الموقع كاملاً باسمك وهويتك واستخدامه كحل خاص بك بدون قيود.</p>
+                    <a href="https://wa.me/970568181910?text=أريد%20شراء%20وملكية%20موقع%20F90%20بالكامل" target="_blank" rel="noopener" class="action-btn service-btn primary">شراء الموقع الآن</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Direct Contact -->
+        <section id="contact" class="section-block">
+            <div class="section-title-wrap">
+                <h2 class="section-title"><span class="title-icon">📞</span> التواصل المباشر</h2>
+                <p class="section-desc">تواصل معنا مباشرة للحصول على الدعم الفني أو الاستفسارات</p>
+            </div>
+
+            <div class="contact-card glass-card">
+                <div class="contact-links">
+                    <a href="https://wa.me/970568181910" target="_blank" rel="noopener" class="contact-btn whatsapp-btn">
+                        <span class="btn-icon">💬</span>
+                        <span class="btn-label">واتساب: +970568181910</span>
+                    </a>
+                    <a href="https://instagram.com/f90.xd" target="_blank" rel="noopener" class="contact-btn instagram-btn">
+                        <span class="btn-icon">📸</span>
+                        <span class="btn-label">إنستغرام: @f90.xd</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-logo">F90</div>
+            <p class="footer-title">الموقع الرسمي الخاص F90</p>
+            <p class="footer-copy">Developed by F90 &copy; All Rights Reserved</p>
+            <p class="footer-insta"><a href="https://instagram.com/f90.xd" target="_blank" rel="noopener">Instagram: @f90.xd</a></p>
+        </div>
+    </footer>
+
+    <!-- Palestine Ribbon Bottom -->
+    <div class="palestine-ribbon-bottom" aria-hidden="true"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
